@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "author": "Parthiban",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-esp32-devkit-v1", "id": "esp", "top": 4.7, "left": 4.6, "attrs": {} },
+    { "type": "wokwi-potentiometer", "id": "pot1", "top": 46.7, "left": 201.4, "attrs": {} },
+    {
+      "type": "wokwi-photoresistor-sensor",
+      "id": "ldr1",
+      "top": -92.8,
+      "left": -239.2,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 51.95,
+      "left": -124.8,
+      "attrs": { "value": "10000" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX0", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX0", "$serialMonitor:TX", "", [] ],
+    [ "esp:3V3", "pot1:GND", "green", [ "h124.5", "v-48" ] ],
+    [ "esp:GND.1", "pot1:VCC", "black", [ "h0" ] ],
+    [ "esp:D34", "pot1:SIG", "green", [ "h-38.4", "v191.8", "h269.2" ] ],
+    [ "ldr1:AO", "esp:3V3", "green", [ "h19.2", "v325.7", "h172.8", "v-115.2" ] ],
+    [ "ldr1:DO", "esp:D35", "green", [ "h28.8", "v124.6" ] ],
+    [ "r1:2", "esp:D35", "green", [ "v0" ] ],
+    [ "r1:1", "esp:GND.2", "green", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}
